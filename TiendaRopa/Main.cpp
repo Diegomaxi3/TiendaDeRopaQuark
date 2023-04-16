@@ -3,6 +3,8 @@
 #include "Pantalon.h"
 
 int main() {
+	setlocale(LC_ALL, "");
+
 	std::vector<Prenda*> lsPrendas;
 	lsPrendas.push_back(new Camisa(STANDARD, 100, 2000, CORTA, MAO));
 	lsPrendas.push_back(new Camisa(PREMIUM, 100, 2000, CORTA, MAO));

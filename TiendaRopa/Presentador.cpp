@@ -16,7 +16,7 @@ void Presentador::menuPrincipal() {
 			vendedor->getApellido(), vendedor->getNroVendedor());
 		std::cin >> op;
 		validarOpcion(op);
-	} while (getchar() != 3);
+	} while (op != 3);
 }
 
 void Presentador::validarOpcion(int op) {
@@ -28,42 +28,25 @@ void Presentador::validarOpcion(int op) {
 	}
 }
 
-int Presentador::paso1() {
-	view->paso1();
+
+int Presentador::paso(int op, std::string tipo, char letra,int cantidadDisponible) {
 	int resp;
+	switch (op) {
+	case 1:view->paso1();  break;
+	case 2: 
+	{
+		if (tipo == "CAMISA") letra == 'a' ? view->pasoCamisa2a() : view->pasoCamisa2b();
+		else view->pasoPantalon2();	
+	}break;
+	case 3:view->paso3(); break;
+	case 5:view->paso5(cantidadDisponible); break;
+	}
 	std::cin >> resp;
 	return resp;
 }
 
-int Presentador::pasoCamisa2a() {
-	view->pasoCamisa2a();
-	int resp;
-	std::cin >> resp;
-	return resp;
-}
-
-int Presentador::pasoCamisa2b() {
-	view->pasoCamisa2b();
-	int resp;
-	std::cin >> resp;
-	return resp;
-}
-
-int Presentador::paso3() {
-	view->paso3();
-	int resp;
-	std::cin >> resp;
-	return resp;
-}
-double Presentador::paso4() {
+double Presentador::paso() {
 	view->paso4();
-	int resp;
-	std::cin >> resp;
-	return resp;
-}
-
-int Presentador::paso5(int cantidadaDisponible) {
-	view->paso5(cantidadaDisponible);
 	int resp;
 	std::cin >> resp;
 	return resp;

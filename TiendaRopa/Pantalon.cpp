@@ -23,3 +23,7 @@ Calidad Pantalon::getCalidad() {
 int Pantalon::getCantidad(){
 	return this->stock;
 }
+
+ETipoPantalon Pantalon::getTipoPantalon() {
+	return this->tipoPantalon;
+}

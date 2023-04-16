@@ -35,7 +35,7 @@ void View::menuPrincipal(std::string nomTienda, std::string direTienda, std::str
 void View::imprimirSalidaAlMenu(int x, int y) {
 	gotoxy(x, y); imprimirSeparador();
 	gotoxy(x + 1, y + 1); cout << "Presione 3 para volver al menu principal";
-	gotoxy(x + 2, y + 2); imprimirSeparador();
+	gotoxy(x, y + 2); imprimirSeparador();
 }
 
 void View::paso1() {
@@ -45,8 +45,8 @@ void View::paso1() {
 	gotoxy(20, 10 + 5); cout << "seleccione la prenda a utilizar: ";
 	gotoxy(20, 10 + 7); cout << "1 - Camisa";
 	gotoxy(20, 10 + 8); cout << "2 - Pantalon";
-	gotoxy(20, 10 + 9); cout << "OPCION: ";
-	gotoxy(20, 10 + 10); imprimirSeparador();
+	gotoxy(20, 10 + 9); imprimirSeparador();
+	gotoxy(20, 10 + 10); cout << "OPCION: ";
 }
 
 void View::pasoCamisa2a() {
@@ -55,8 +55,8 @@ void View::pasoCamisa2a() {
 	imprimirSalidaAlMenu(20 + 1, 10 + 1);
 	gotoxy(20, 10 + 5); cout << "PASO 2.a: la camisa a cotizar, es manga corta? ";
 	imprimirPregunta(20, 10 + 7);
-	gotoxy(20, 10 + 9); cout << "OPCION: ";
-	gotoxy(20, 10 + 10);  imprimirSeparador();
+	gotoxy(20, 10 + 9); imprimirSeparador();
+	gotoxy(20, 10 + 10); cout << "OPCION: ";
 }
 
 void View::pasoCamisa2b() {
@@ -65,8 +65,8 @@ void View::pasoCamisa2b() {
 	imprimirSalidaAlMenu(20 + 1, 10 + 1);
 	gotoxy(20, 10 + 5); cout << "PASO 2.b: la camisa a cotizar, es cuello mao? ";
     imprimirPregunta(20, 10 + 7);
-	gotoxy(20, 10 + 9); cout << "OPCION: ";
-	gotoxy(20, 10 + 10); imprimirSeparador();
+	gotoxy(20, 10 + 9); imprimirSeparador();
+	gotoxy(20, 10 + 10); cout << "OPCION: ";
 }
 
 void View::pasoPantalon2() {
@@ -75,8 +75,8 @@ void View::pasoPantalon2() {
 	imprimirSalidaAlMenu(20 + 1, 10 + 1);
 	gotoxy(20, 10 + 5); cout << "PASO 2: el pantalon a cotizar, es chupín? ";
 	imprimirPregunta(20, 10 + 7);
-	gotoxy(20, 10 + 9); cout << "OPCION: ";
-	gotoxy(20, 10 + 10); imprimirSeparador();
+	gotoxy(20, 10 + 9); imprimirSeparador();
+	gotoxy(20, 10 + 10); cout << "OPCION: ";;
 }
 
 void View::paso3() {
@@ -86,17 +86,17 @@ void View::paso3() {
 	gotoxy(20, 10 + 5); cout << "seleccione la calidad de la prenda ";
 	gotoxy(20, 10 + 7); cout << "1 - Estandar";
 	gotoxy(20, 10 + 8); cout << "2 - Premium";
-	gotoxy(20, 10 + 9); cout << "OPCION: ";
-	gotoxy(20, 10 + 10); imprimirSeparador();
+	gotoxy(20, 10 + 9); imprimirSeparador();
+	gotoxy(20, 10 + 10); cout << "OPCION: ";
 }
 
 void View::paso4() {
 	system("cls");
 	gotoxy(20, 10); cout << "COTIZACIONES EXPRESS" << " | " << "COTIZAR";
 	imprimirSalidaAlMenu(20 + 1, 10 + 1);
-	gotoxy(20, 10 + 5); cout << "PASO 4: Ingrese el precio unitario de la prenda a utilizar:  ";
-	gotoxy(20, 10 + 6); cout << "Precio: ";
-	gotoxy(20, 10 + 7); imprimirSeparador();
+	gotoxy(20, 10 + 5); cout << "PASO 4: Ingrese el precio unitario de la prenda a utilizar:  ";	
+	gotoxy(20, 10 + 6); imprimirSeparador();
+	gotoxy(20, 10 + 7); cout << "Precio: ";
 }
 
 void View::paso5(int cantidad) {
@@ -105,9 +105,9 @@ void View::paso5(int cantidad) {
 	imprimirSalidaAlMenu(20 + 1, 10 + 1);
 	gotoxy(20, 10 + 5); cout << "INFORMACIÓN:  ";
 	gotoxy(20, 10 + 6); cout << "EXISTE " << cantidad << " DE UNIDADES EN STOCK DE LA PRENDA SELECCIONADA";
-	gotoxy(20, 10 + 7); cout << "PASO 5: seleccione la cantidad de unidades a cotizar:";
-	gotoxy(20, 10 + 8); cout << "Cantidad: ";
-	gotoxy(20, 10 + 9);imprimirSeparador();
+	gotoxy(20, 10 + 7); cout << "PASO 5: seleccione la cantidad de unidades a cotizar:";	
+	gotoxy(20, 10 + 8);imprimirSeparador();
+	gotoxy(20, 10 + 9); cout << "Cantidad: ";
 }
 
 void View::imprimirCotizacion(int numIdentificacion, std::time_t fecha, std::string codVen, std::string prenda, double precio, int cant) {

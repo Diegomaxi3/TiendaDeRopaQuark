@@ -17,6 +17,7 @@ public:
 	double getPrecio();
 	Calidad getCalidad();
 	int getCantidad();
+	ETipoPantalon getTipoPantalon();
 	std::string toString();
 	~Pantalon() = default;
 };

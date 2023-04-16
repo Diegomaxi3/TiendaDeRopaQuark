@@ -28,13 +28,7 @@ public:
 	void imprimirPregunta(std::string);
 
 	// nuevos para agregar al diagrama de clases//
-	int paso1();
-	int pasoCamisa2a();
-	int pasoCamisa2b();
-	int pasoPantalon2();
-	int paso3();
-	double paso4();
-	int paso5(int cantidad);
-
+	int paso(int, std::string,char,int);
+	double paso();
 };
 #endif // !PRESENTADOR_H
