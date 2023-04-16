@@ -16,6 +16,7 @@ class Tienda {
 	std::string direccion;
 	std::vector<Prenda*> listaDePrendas;
 	std::vector<Cotizacion*> listaDeCotizaciones;
+
 public:
 	Tienda(std::string, std::string, std::vector<Prenda*>);
 	std::string getNombre();
@@ -28,8 +29,8 @@ public:
 	void crearCotizacion(Vendedor *vendedor);
 	Prenda* reservarCamisa(Vendedor* vendedor) ;
 	Prenda* reservarPantalon(Vendedor* vendedor) ;
-	int buscarCantidadDePrendas(ETipoManga, ETipoCuello, Calidad) ;
-	int buscarCantidadDePrendas(ETipoPantalon, Calidad) ;
+	Prenda* buscarCantidadDePrendas(ETipoManga, ETipoCuello, Calidad) ;
+	Prenda* buscarCantidadDePrendas(ETipoPantalon, Calidad) ;
 	~Tienda();
 };
 

@@ -24,6 +24,10 @@ int Pantalon::getCantidad(){
 	return this->stock;
 }
 
+void Pantalon::setCantidad(int cantidad) {
+	this->stock = cantidad;
+}
+
 ETipoPantalon Pantalon::getTipoPantalon() {
 	return this->tipoPantalon;
 }

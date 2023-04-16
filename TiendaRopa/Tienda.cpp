@@ -60,14 +60,16 @@ Prenda* Tienda::reservarCamisa(Vendedor* vendedor)
 
 	int resultado;
 	resultado = vendedor->presentador->paso(2, "CAMISA", 'a', 0);
-	if (resultado != 3) resultado == 1 ? manga = CORTA : manga = CORTA;
+	if (resultado != 3) resultado == 1 ? manga = CORTA : manga = LARGA;
 	resultado = vendedor->presentador->paso(2, "CAMISA", 'b', 0);
 	if (resultado != 3) resultado == 1 ?  cuello = MAO: cuello = COMUN;
 	resultado = vendedor->presentador->paso(3, "", 0, 0);
-	if (resultado != 3) resultado == 1 ? calidad = PREMIUM : calidad = STANDARD;
+	if (resultado != 3) resultado == 1 ? calidad = STANDARD : calidad = PREMIUM;
 	double precio = vendedor->presentador->paso();
-	int cantidad =  vendedor->presentador->paso(5, "", 0,buscarCantidadDePrendas(manga,cuello,calidad));
+	Prenda* prenda = buscarCantidadDePrendas(manga, cuello, calidad);
+	int cantidad =  vendedor->presentador->paso(prenda->getCantidad());
 
+	prenda->setCantidad(prenda->getCantidad() - cantidad);
 	return new Camisa(calidad, cantidad, precio, manga, cuello);
 	// retar cantidad al total para presupuestos futuros ???
 }
@@ -82,38 +84,37 @@ Prenda* Tienda::reservarPantalon(Vendedor* vendedor)
 	if (resultado != 3) resultado == 1 ? pantalon = CHUPINES : pantalon = COMUNES;
 	resultado = vendedor->presentador->paso(3, "", 0, 0);
 	if (resultado != 3) resultado == 1 ? calidad = PREMIUM : calidad = STANDARD;
-	double precio = vendedor->presentador->paso();;
-	int cantidad = vendedor->presentador->paso(5, "", 0,buscarCantidadDePrendas( pantalon, calidad));
+	double precio = vendedor->presentador->paso();
+	Prenda* prenda = buscarCantidadDePrendas(pantalon, calidad);
+	int cantidad = vendedor->presentador->paso(prenda->getCantidad());
 
+	prenda->setCantidad(prenda->getCantidad() - cantidad);
 	return new Pantalon(calidad, cantidad, precio, pantalon);
 }
 
-int Tienda::buscarCantidadDePrendas(ETipoManga manga, ETipoCuello cuello,Calidad calidad)
+Prenda* Tienda::buscarCantidadDePrendas(ETipoManga manga, ETipoCuello cuello,Calidad calidad)
 {
-	int cantidad = 0;
 	for (Prenda* prenda : listaDePrendas) {
 		if (dynamic_cast<Camisa*>(prenda) != NULL) {
 			Camisa* a = dynamic_cast<Camisa*>(prenda);
 			if (a->getTipoManga() == manga && a->getTipoCuello() == cuello && a->getCalidad() == calidad) {
-				cantidad = a->getCantidad();
+				return prenda;
 				break;
 			}
 		}
 	}
-	return cantidad;
 }
 
-int Tienda::buscarCantidadDePrendas(ETipoPantalon pantalon, Calidad calidad)
+
+Prenda* Tienda::buscarCantidadDePrendas(ETipoPantalon pantalon, Calidad calidad)
 {
 	int cantidad = 0;
 	for (Prenda* prenda : listaDePrendas) {
 		if (dynamic_cast<Pantalon*>(prenda) != NULL) {
 			Pantalon* a = dynamic_cast<Pantalon*>(prenda);
 			if (a->getCalidad() == calidad && a->getTipoPantalon() == pantalon) {
-				cantidad = a->getCantidad();
-				break;
+				return prenda;
 			}
 		}
 	}
-	return cantidad;
 }

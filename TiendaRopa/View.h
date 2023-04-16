@@ -22,5 +22,6 @@ public:
 	void paso3();
 	void paso4();
 	void paso5(int cantidad);
+	void error(std::string);
 };
 #endif // !VIEW_H

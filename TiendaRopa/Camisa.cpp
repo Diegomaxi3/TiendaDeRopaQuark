@@ -30,6 +30,10 @@ int Camisa::getCantidad() {
 	return this->stock;
 }
 
+void Camisa::setCantidad(int cantidad) {
+	this->stock = cantidad;
+}
+
 std::string Camisa::toString() {
 	return nombre + " - " + (tipoManga == CORTA ? "Manga corta" : "Manga larga") + " - " + 
 		(tipoCuello == MAO ? "Cuello mao" : "Cuello clásico") + " - " +  (calidad == PREMIUM ? "Premium" : "Standard");

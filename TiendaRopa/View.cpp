@@ -127,7 +127,13 @@ void View::imprimirCotizacion(int numIdentificacion, std::time_t fecha, std::str
 
 
 void View::imprimirPregunta(int x, int y) {
-	 gotoxy(x, y); 	 cout << "1 - SI";
-	 gotoxy(x, y + 1); cout << "2 - NO";
+	gotoxy(x, y); 	 cout << "1 - SI";
+	gotoxy(x, y + 1); cout << "2 - NO";
+}
+
+void View::error(std::string error) {
+	system("cls");
+	gotoxy(30, 15); cout << error;
+	gotoxy(30, 40); cout << "Presione una tecla para continuar...";
 }
 

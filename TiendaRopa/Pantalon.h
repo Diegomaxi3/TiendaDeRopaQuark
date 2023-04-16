@@ -18,6 +18,7 @@ public:
 	Calidad getCalidad();
 	int getCantidad();
 	ETipoPantalon getTipoPantalon();
+	void setCantidad(int cantidad);
 	std::string toString();
 	~Pantalon() = default;
 };

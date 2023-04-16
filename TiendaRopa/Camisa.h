@@ -21,6 +21,7 @@ public:
 	ETipoManga getTipoManga();
 	ETipoCuello getTipoCuello();
 	Calidad getCalidad();
+	void setCantidad(int cantidad);
 	int getCantidad();
 	~Camisa() = default;
 };
