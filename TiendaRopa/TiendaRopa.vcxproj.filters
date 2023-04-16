@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Archivos de origen">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Archivos de encabezado">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Archivos de recursos">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Modelo">
+      <UniqueIdentifier>{c34b38cb-9daa-469b-adcb-5d8b5fe72180}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Vista">
+      <UniqueIdentifier>{eb5bece4-599f-47a9-9cb8-1dfe873fff50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Presentador">
+      <UniqueIdentifier>{2237634b-7bed-4122-8c8f-2e8b24c214b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de recursos\Enumerados">
+      <UniqueIdentifier>{5cbde144-0c24-4851-8630-a555e616c4a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Modelo">
+      <UniqueIdentifier>{51ce0993-5f77-4926-84dd-7578fe1e8ab8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Vista">
+      <UniqueIdentifier>{625a9a51-a111-4c9a-9d2a-e382693b3312}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Presentador">
+      <UniqueIdentifier>{2ccfef44-5b4a-4bbe-b2f1-b12490d62639}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ECalidad.h">
+      <Filter>Archivos de recursos\Enumerados</Filter>
+    </ClInclude>
+    <ClInclude Include="ETipoPantalon.h">
+      <Filter>Archivos de recursos\Enumerados</Filter>
+    </ClInclude>
+    <ClInclude Include="ETipoCuello.h">
+      <Filter>Archivos de recursos\Enumerados</Filter>
+    </ClInclude>
+    <ClInclude Include="ETipoManga.h">
+      <Filter>Archivos de recursos\Enumerados</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>Archivos de encabezado\Vista</Filter>
+    </ClInclude>
+    <ClInclude Include="View.h">
+      <Filter>Archivos de encabezado\Vista</Filter>
+    </ClInclude>
+    <ClInclude Include="Presentador.h">
+      <Filter>Archivos de encabezado\Presentador</Filter>
+    </ClInclude>
+    <ClInclude Include="Vendedor.h">
+      <Filter>Archivos de encabezado\Modelo</Filter>
+    </ClInclude>
+    <ClInclude Include="Tienda.h">
+      <Filter>Archivos de encabezado\Modelo</Filter>
+    </ClInclude>
+    <ClInclude Include="Cotizacion.h">
+      <Filter>Archivos de encabezado\Modelo</Filter>
+    </ClInclude>
+    <ClInclude Include="Prenda.h">
+      <Filter>Archivos de encabezado\Modelo</Filter>
+    </ClInclude>
+    <ClInclude Include="Pantalon.h">
+      <Filter>Archivos de encabezado\Modelo</Filter>
+    </ClInclude>
+    <ClInclude Include="Camisa.h">
+      <Filter>Archivos de encabezado\Modelo</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="View.cpp">
+      <Filter>Archivos de origen\Vista</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
