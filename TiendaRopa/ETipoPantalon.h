@@ -1,5 +1,5 @@
 #pragma once
 #ifndef ETIPOPANTALON
-enum class ETipoPantalon
+enum  ETipoPantalon
 {COMUNES,CHUPINES};
 #endif // !ETIPOPANTALON

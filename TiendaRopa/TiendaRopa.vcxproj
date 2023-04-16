@@ -142,6 +142,13 @@
     <ClInclude Include="View.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Camisa.cpp" />
+    <ClCompile Include="Cotizacion.cpp" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Pantalon.cpp" />
+    <ClCompile Include="Presentador.cpp" />
+    <ClCompile Include="Tienda.cpp" />
+    <ClCompile Include="Vendedor.cpp" />
     <ClCompile Include="View.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

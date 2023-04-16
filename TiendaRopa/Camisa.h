@@ -6,7 +6,7 @@
 
 #ifndef CAMISA_H
 #define CAMISA_H
-class Camisa:Prenda {
+class Camisa:public Prenda {
 	Calidad calidad;
 	int stock;
 	std::string nombre;
@@ -15,9 +15,13 @@ class Camisa:Prenda {
 	ETipoCuello tipoCuello;
 
 public:
-	Camisa(Calidad, int, std::string, double, ETipoManga, ETipoCuello);
+	Camisa(Calidad, int, double, ETipoManga, ETipoCuello);
 	double getPrecio();
 	std::string toString();
+	ETipoManga getTipoManga();
+	ETipoCuello getTipoCuello();
+	Calidad getCalidad();
+	int getCantidad();
 	~Camisa() = default;
 };
 #endif // !CAMISA_H
