@@ -21,8 +21,18 @@ void Presentador::menuPrincipal() {
 
 void Presentador::validarOpcion(int op) {
 	switch (op) {
-	case 1: vendedor->tienda->verHistorialCotizaciones(); break;
-	case 2: vendedor->tienda->crearCotizacion(vendedor);break;
+	case 1: imprimirHistorial(); break;
+	case 2: {	
+		try {
+			Cotizacion* cot = vendedor->tienda->crearCotizacion(vendedor);
+			view->limpiarPantalla();
+			imprimirCotizacion(cot, 10);
+			std::string b;
+			getline(std::cin, b);
+		}
+		catch (int num) {};
+		break;
+	}
 	case 3:break;
 	default: {
 		view->error("La opción ingresada no existe."); 
@@ -34,8 +44,8 @@ void Presentador::validarOpcion(int op) {
 }
 
 
-int Presentador::paso(int op, std::string tipo, char letra,int cantidadDisponible) {
-	int resp;
+int Presentador::paso(int op, std::string tipo, char letra) {
+	std::string resp;
 	do {
 		switch (op) {
 		case 1:view->paso1();  break;
@@ -46,38 +56,103 @@ int Presentador::paso(int op, std::string tipo, char letra,int cantidadDisponibl
 		}break;
 		case 3:view->paso3(); break;
 		}
-		std::cin >> resp;
-	} while (resp != 1 && resp != 2);
-	std::string b;
-	getline(std::cin, b);
-	return resp;
+		getline(std::cin,resp);
+		if (toUpper(resp).compare("S") == 0) throw(3);
+		if (resp.compare("1")!= 0 && resp.compare("2")!= 0) {
+			view->error("La opción ingresada es incorrecta.");
+			std::string b;
+			getline(std::cin, b);		
+		}
+	} while (resp._Equal("1") == 0 && resp._Equal("2") == 0);
+	return parseInt(resp);
 }
 
 double Presentador::paso() {
-	view->paso4();
-	int resp;
-	std::cin >> resp;
-	std::string a;
-	std::getline(std::cin, a);
-	return resp;
+	std::string resp;
+	do {
+		view->paso4();	
+		getline(std::cin, resp);
+		if (toUpper(resp).compare("S") == 0) throw(3);
+		if (!parseDouble(resp)) {
+			view->error("Ingrese un Valor valida!");
+			std::string b;
+			getline(std::cin, b);
+		}
+	} while (!parseDouble(resp));
+	return parseDouble(resp);
 }
 
 int Presentador::paso(int cantidadDisponible) {
-	view->paso5(cantidadDisponible);
-	int resp;
-	std::cin >> resp;
-	std::string b;
-	getline(std::cin, b);
-	return resp;
+	std::string resp;
+	do {
+		view->paso5(cantidadDisponible);
+		getline(std::cin, resp);
+		if (toUpper(resp).compare("S") == 0) throw(3);
+		if (!parseInt(resp) || parseInt(resp) > cantidadDisponible) {
+			view->error("Ingrese una cantidad valida!");
+			std::string b;
+			getline(std::cin, b);
+		}
+	} while (!parseInt(resp) || parseInt(resp) > cantidadDisponible);
+
+	return parseInt(resp);
 }
 
 int Presentador::parseInt(std::string op) {
 	std::stringstream aux;
 	aux << op;
-	int respuesta;
+	int respuesta = 0;
 	aux >> respuesta;
 	return respuesta;
 }
 
+double Presentador::parseDouble(std::string op) {
+	std::stringstream aux;
+	aux << op;
+	double respuesta = 0;
+	aux >> respuesta;
+	return respuesta;
+}
 
+std::string Presentador::parseString(int num) {
+	std::stringstream aux;
+	aux << num;
+	std::string respuesta = "";
+	return aux.str();
+}
 
+void Presentador::imprimirHistorial(){
+	int y = 2;
+	view->limpiarPantalla();
+	if (vendedor->tienda->verHistorialCotizaciones().size() > 0) {
+		for (Cotizacion* cot : vendedor->tienda->verHistorialCotizaciones()) {
+			y = imprimirCotizacion(cot, y);
+		}
+	}
+	else { view->error("El Historial aun esta vacio!");	}
+	std::string b;
+	getline(std::cin, b);
+}
+int Presentador::imprimirCotizacion(Cotizacion* cot,int y) {
+	y = view->imprimirCotizacion(cot->getNroIdentificacion(), cot->getFechaCotizacion(), cot->getNroVendedor(), cot->prendaCotizada->toString(),
+	cot->prendaCotizada->getPrecio(), cot->prendaCotizada->getCantidad(),y);	
+	return y;
+}
+
+std::string Presentador::dateFormat(int num) {
+	if (num < 10) {
+		return "0" + parseString(num);
+	}
+	return parseString(num);
+}
+
+std::string Presentador::toUpper(std::string dato) {
+	std::string retorno = dato;
+	int cont = 0;
+	for (char letra : dato) {
+		char letra1 = std::toupper(letra);
+		retorno[cont] = letra1;
+		cont++;
+	}
+	return retorno;
+}

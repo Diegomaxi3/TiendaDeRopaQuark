@@ -13,7 +13,7 @@ private:
 	void imprimirPregunta(int x,int y);
 public:	
 	View()=default;
-	void imprimirCotizacion(int, std::time_t, std::string, std::string, double, int);
+	int imprimirCotizacion(int, std::string, int, std::string, double, int,int);
 	void menuPrincipal(std::string, std::string, std::string, int); 
 	void paso1();
 	void pasoCamisa2a();
@@ -23,5 +23,6 @@ public:
 	void paso4();
 	void paso5(int cantidad);
 	void error(std::string);
+	void limpiarPantalla();
 };
 #endif // !VIEW_H

@@ -2,6 +2,7 @@
 #include "Vendedor.h"
 #include <ctime>
 
+int Tienda::nroCotizacion = 0;
 
 Tienda::Tienda(std::string nombre, std::string direccion, std::vector<Prenda*> prendas) {
 	this->nombre = nombre;
@@ -34,22 +35,34 @@ Tienda::~Tienda() {
 	}
 }
 
-void Tienda::crearCotizacion(Vendedor* vendedor) {
+Cotizacion* Tienda::crearCotizacion(Vendedor* vendedor) {
 	Prenda* prenda;
 	int cantPrendas;
 	int nroVendedor = vendedor->getNroVendedor();
-	int nroIdentificacion = vendedor->presentador->paso(1,"",0,0);
-	if (nroIdentificacion == 1) {
-	 prenda = reservarCamisa(vendedor);
-	 cantPrendas = prenda->getCantidad();
-	}
-	else {
-		prenda = reservarPantalon(vendedor);
-		cantPrendas = prenda->getCantidad();
-	}
-	std::time_t fechaHora = std::time(nullptr);
-	Cotizacion* cotizacion = new Cotizacion(nroIdentificacion,fechaHora,nroVendedor,prenda,cantPrendas);
-	listaDeCotizaciones.push_back(cotizacion);
+
+		if (vendedor->presentador->paso(1, "", 0) == 1) {
+			prenda = reservarCamisa(vendedor);
+			cantPrendas = prenda->getCantidad();
+		}
+		else {		
+			prenda = reservarPantalon(vendedor);
+			cantPrendas = prenda->getCantidad();
+		}
+		std::time_t fechaHora = time(&fechaHora);
+		struct tm newtime;
+		localtime_s(&newtime, &fechaHora);
+		std::string fecha = vendedor->presentador->parseString(newtime.tm_mday) + "/"
+			+ vendedor->presentador->parseString(newtime.tm_mon + 1) + "/" +
+			vendedor->presentador->parseString(1900 + newtime.tm_year) + " " +
+			vendedor->presentador->dateFormat(newtime.tm_hour) + ":" +
+			vendedor->presentador->dateFormat(newtime.tm_min);
+
+		int nroIdentificacion = vendedor->tienda->nroCotizacion + 1;
+		vendedor->tienda->nroCotizacion = nroIdentificacion;
+		Cotizacion* cotizacion = new Cotizacion(nroIdentificacion, fecha, nroVendedor, prenda, cantPrendas);
+		listaDeCotizaciones.push_back(cotizacion);
+	
+	return cotizacion;
 }
 
 Prenda* Tienda::reservarCamisa(Vendedor* vendedor)
@@ -59,11 +72,11 @@ Prenda* Tienda::reservarCamisa(Vendedor* vendedor)
 	Calidad calidad;
 
 	int resultado;
-	resultado = vendedor->presentador->paso(2, "CAMISA", 'a', 0);
+	resultado = vendedor->presentador->paso(2, "CAMISA", 'a');
 	if (resultado != 3) resultado == 1 ? manga = CORTA : manga = LARGA;
-	resultado = vendedor->presentador->paso(2, "CAMISA", 'b', 0);
+	resultado = vendedor->presentador->paso(2, "CAMISA", 'b');
 	if (resultado != 3) resultado == 1 ?  cuello = MAO: cuello = COMUN;
-	resultado = vendedor->presentador->paso(3, "", 0, 0);
+	resultado = vendedor->presentador->paso(3, "", 0);
 	if (resultado != 3) resultado == 1 ? calidad = STANDARD : calidad = PREMIUM;
 	double precio = vendedor->presentador->paso();
 	Prenda* prenda = buscarCantidadDePrendas(manga, cuello, calidad);
@@ -80,9 +93,9 @@ Prenda* Tienda::reservarPantalon(Vendedor* vendedor)
 	Calidad calidad;
 
 	int resultado;
-	resultado = vendedor->presentador->paso(2, "PANTALON", 0, 0);
+	resultado = vendedor->presentador->paso(2, "PANTALON", 0);
 	if (resultado != 3) resultado == 1 ? pantalon = CHUPINES : pantalon = COMUNES;
-	resultado = vendedor->presentador->paso(3, "", 0, 0);
+	resultado = vendedor->presentador->paso(3, "", 0);
 	if (resultado != 3) resultado == 1 ? calidad = PREMIUM : calidad = STANDARD;
 	double precio = vendedor->presentador->paso();
 	Prenda* prenda = buscarCantidadDePrendas(pantalon, calidad);

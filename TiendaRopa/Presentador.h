@@ -17,20 +17,23 @@ class Presentador {
 	View* view;
 
 	//Metodos propios
-	void esperarRespuesta();
 	void validarOpcion(int op);
 public:
 	//Metodos propios
 	Presentador(Vendedor*,  View*);
 	int parseInt(std::string);
-
+	double parseDouble(std::string op);
+	std::string parseString(int);
+	std::string dateFormat(int);
+	std::string toUpper(std::string);
 
 	// Metodos del view
 	void menuPrincipal();
-	void imprimirHistorial(int, std::time_t, std::string, std::string, double, int);
+	void imprimirHistorial();
+	int imprimirCotizacion(Cotizacion*, int);
 
 	// nuevos para agregar al diagrama de clases//
-	int paso(int, std::string,char,int);
+	int paso(int, std::string,char);
 	double paso();
 	int paso(int cantidadDisponible);
 };

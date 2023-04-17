@@ -1,6 +1,6 @@
 #include "Cotizacion.h"
 
-Cotizacion::Cotizacion(int nroIdentificacion, std::time_t fechaHora, int nroVendedor, Prenda* prenda, int cantPrendas) {
+Cotizacion::Cotizacion(int nroIdentificacion, std::string fechaHora, int nroVendedor, Prenda* prenda, int cantPrendas) {
 	this->NroIdentificacion = nroIdentificacion;
 	this->fechaCotizacion = fechaHora;
 	this->nroVendedor = nroVendedor;
@@ -12,7 +12,7 @@ int Cotizacion::getNroIdentificacion() {
 	return this->NroIdentificacion;
 }
 
-std::time_t Cotizacion::getFechaCotizacion() {
+std::string Cotizacion::getFechaCotizacion() {
 	return this->fechaCotizacion;
 }
 
