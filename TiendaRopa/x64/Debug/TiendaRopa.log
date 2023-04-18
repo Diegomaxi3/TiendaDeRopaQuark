@@ -1,2 +1,4 @@
-﻿  View.cpp
+﻿  Tienda.cpp
+D:\Users\marky\Desktop\Juegos C++\TiendaRopa\TiendaRopa\Tienda.cpp(125): warning C4715: 'Tienda::buscarCantidadDePrendas': no todas las rutas de acceso de control devuelven un valor
+D:\Users\marky\Desktop\Juegos C++\TiendaRopa\TiendaRopa\Tienda.cpp(139): warning C4715: 'Tienda::buscarCantidadDePrendas': no todas las rutas de acceso de control devuelven un valor
   TiendaRopa.vcxproj -> D:\Users\marky\Desktop\Juegos C++\TiendaRopa\x64\Debug\TiendaRopa.exe

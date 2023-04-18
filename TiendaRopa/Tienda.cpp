@@ -79,6 +79,10 @@ Prenda* Tienda::reservarCamisa(Vendedor* vendedor)
 	resultado = vendedor->presentador->paso(3, "", 0);
 	if (resultado != 3) resultado == 1 ? calidad = STANDARD : calidad = PREMIUM;
 	double precio = vendedor->presentador->paso();
+	manga == CORTA ? precio *= 0.9 : precio = precio;
+	cuello == MAO ? precio *= 1.03 : precio = precio;
+	calidad == PREMIUM ? precio *= 1.3 : precio = precio;
+
 	Prenda* prenda = buscarCantidadDePrendas(manga, cuello, calidad);
 	int cantidad =  vendedor->presentador->paso(prenda->getCantidad());
 
@@ -96,8 +100,10 @@ Prenda* Tienda::reservarPantalon(Vendedor* vendedor)
 	resultado = vendedor->presentador->paso(2, "PANTALON", 0);
 	if (resultado != 3) resultado == 1 ? pantalon = CHUPINES : pantalon = COMUNES;
 	resultado = vendedor->presentador->paso(3, "", 0);
-	if (resultado != 3) resultado == 1 ? calidad = PREMIUM : calidad = STANDARD;
+	if (resultado != 3) resultado == 1 ? calidad = STANDARD : calidad = PREMIUM ;
 	double precio = vendedor->presentador->paso();
+	pantalon == CHUPINES ? precio *= 0.88 : precio = precio;
+	calidad == PREMIUM ? precio *= 1.3 : precio = precio;
 	Prenda* prenda = buscarCantidadDePrendas(pantalon, calidad);
 	int cantidad = vendedor->presentador->paso(prenda->getCantidad());
 
