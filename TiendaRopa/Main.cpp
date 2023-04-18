@@ -3,8 +3,9 @@
 #include "Pantalon.h"
 
 int main() {
-	setlocale(LC_ALL, "");
+	setlocale(LC_ALL, "");//SE UTILIZA FORMATO ESPAñOL
 
+	//CREACION DE UNA LISTA DE PRENDAS PARA INGRESAR A LA TIENDA
 	std::vector<Prenda*> lsPrendas;
 	lsPrendas.push_back(new Camisa(STANDARD, 100, 2000, CORTA, MAO));
 	lsPrendas.push_back(new Camisa(PREMIUM, 100, 2000, CORTA, MAO));
@@ -20,10 +21,19 @@ int main() {
 	lsPrendas.push_back(new Pantalon(STANDARD, 250, 3000, COMUNES));
 	lsPrendas.push_back(new Pantalon(PREMIUM, 250, 3000, COMUNES));
 	
+	//CREACION DE AL TIENDA
 	Tienda* tienda =new Tienda("Expreso Ropitas", "av.Maipu 2320", lsPrendas);
-	View view = View();
+
+	//CREAMOS LA VISATA PARA INCORPORAR AL PRESENTADOR
+	View view = View(); 
+
+	//CREAMOS EL VENDEDOR
 	Vendedor vendedor = Vendedor("Diego", "Cuitiño", 01, tienda);
+
+	//FINAL MENTE CREAMOS EL PRESENTADOR
+	//NO SE SI ES REALMENTE NECESARIO -- SE PODRIA HABER USADO EL VENDEDOR COMO PRESENTADOR ¿?
 	Presentador presentador = Presentador(&vendedor, &view);
-   
+
+	delete tienda;
 	
 }

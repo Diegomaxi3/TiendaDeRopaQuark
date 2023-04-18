@@ -1,5 +1,5 @@
 #include "Vendedor.h"
-
+//COSNTRUCTORES - GETTERS DEL VENDEDOR
 Vendedor::Vendedor(std::string nombre, std::string apellido, int nroVendedor, Tienda* tienda) {
 	this->nombre = nombre;
 	this->apellido = apellido;
