@@ -25,7 +25,6 @@ public:
 	std::vector<Cotizacion*> verHistorialCotizaciones();
 	void imprimirCotizacion();
 
-	// reemplementar en diagrama de clases
 	Cotizacion* crearCotizacion(Vendedor *vendedor);
 	Prenda* reservarCamisa(Vendedor* vendedor) ;
 	Prenda* reservarPantalon(Vendedor* vendedor) ;

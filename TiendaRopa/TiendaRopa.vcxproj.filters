@@ -48,9 +48,6 @@
     <ClInclude Include="ETipoManga.h">
       <Filter>Archivos de recursos\Enumerados</Filter>
     </ClInclude>
-    <ClInclude Include="Menu.h">
-      <Filter>Archivos de encabezado\Vista</Filter>
-    </ClInclude>
     <ClInclude Include="View.h">
       <Filter>Archivos de encabezado\Vista</Filter>
     </ClInclude>

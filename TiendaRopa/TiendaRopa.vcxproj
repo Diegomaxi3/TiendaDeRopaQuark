@@ -133,7 +133,6 @@
     <ClInclude Include="ETipoCuello.h" />
     <ClInclude Include="ETipoManga.h" />
     <ClInclude Include="ETipoPantalon.h" />
-    <ClInclude Include="Menu.h" />
     <ClInclude Include="Pantalon.h" />
     <ClInclude Include="Prenda.h" />
     <ClInclude Include="Presentador.h" />
