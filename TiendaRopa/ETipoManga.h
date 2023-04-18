@@ -1,5 +1,5 @@
 #pragma once
 #ifndef ETIPOMANGA
-enum class ETipoManga
+enum  ETipoManga
 {CORTA,LARGA};
 #endif // !ETIPOMANGA

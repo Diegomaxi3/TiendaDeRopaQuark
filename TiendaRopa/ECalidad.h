@@ -1,6 +1,6 @@
 #pragma once
 #ifndef ECALIDAD
-enum class Calidad
-{STANDAR, PREMIUM};
+enum  Calidad
+{STANDARD, PREMIUM};
 #endif // !ECALIDAD
 

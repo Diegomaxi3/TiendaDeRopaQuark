@@ -7,14 +7,14 @@
 #define COTIZACION_H
 class Cotizacion {
 	int NroIdentificacion;
-	std::time_t fechaCotizacion;
-	int nroVendedor;
-	Prenda* prendaCotizada;
+	std::string fechaCotizacion;
+	int nroVendedor;	
 	int cantPrendas;
 public:
-	Cotizacion(int, std::time_t, int, Prenda*, int);
+	Prenda* prendaCotizada;
+	Cotizacion(int, std::string, int, Prenda*, int);
 	int getNroIdentificacion();
-	std::time_t getFechaCotizacion();
+	std::string getFechaCotizacion();
 	int getNroVendedor();
 	Prenda* getPrendaCotizada();
 	int getCantPrendas();

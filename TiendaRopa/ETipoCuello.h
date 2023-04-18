@@ -1,5 +1,5 @@
 #pragma once
 #ifndef ETIPOCUELLO
-enum class ETipoCuello
+enum  ETipoCuello
 {MAO,COMUN};
 #endif // !ETIPOCUELLO

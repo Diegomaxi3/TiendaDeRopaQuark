@@ -1,0 +1,6 @@
+﻿  Main.cpp
+  Presentador.cpp
+D:\Users\marky\Desktop\Juegos C++\TiendaRopa\TiendaRopa\Presentador.cpp(36,14): warning C4101: 'num': variable local sin referencia
+  Vendedor.cpp
+  Generando código...
+  TiendaRopa.vcxproj -> D:\Users\marky\Desktop\Juegos C++\TiendaRopa\x64\Debug\TiendaRopa.exe

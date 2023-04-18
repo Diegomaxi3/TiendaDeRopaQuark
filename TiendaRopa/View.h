@@ -8,19 +8,21 @@
 class View {
 private:
 	void gotoxy(int x, int y);
-	std::string imprimirSeparador();
+	void imprimirSeparador();
 	void imprimirSalidaAlMenu(int x, int y);
 	void imprimirPregunta(int x,int y);
 public:	
-	View();
-	std::string menuPrincipal(std::string, std::string, std::string, std::string);
-	std::string imprimirHistorial(int, std::time_t, std::string, std::string, double, int);
-	std::string paso1();
-	std::string pasoCamisa2a();
-	std::string pasoCamisa2b();
-	std::string pasoPantalon2();
-	std::string paso3();
-	std::string paso4();
-	std::string paso5();
+	View()=default;
+	int imprimirCotizacion(int, std::string, int, std::string, double, int,int);
+	void menuPrincipal(std::string, std::string, std::string, int); 
+	void paso1();
+	void pasoCamisa2a();
+	void pasoCamisa2b();
+	void pasoPantalon2();
+	void paso3();
+	void paso4();
+	void paso5(int cantidad);
+	void error(std::string);
+	void limpiarPantalla();
 };
 #endif // !VIEW_H
